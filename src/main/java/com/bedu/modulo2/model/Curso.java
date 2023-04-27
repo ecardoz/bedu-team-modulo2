@@ -29,6 +29,10 @@ public class Curso {
         this.materia = materia;
     }
 
+    public Long getId() {
+        return id;
+    }
+
     public String getCiclo() {
         return ciclo;
     }
@@ -47,6 +51,10 @@ public class Curso {
 
     public Map<Estudiante, Integer> getCalificaciones() {
         return calificaciones;
+    }
+
+    public void setCalificaciones(Map<Estudiante, Integer> calificaciones) {
+        this.calificaciones = calificaciones;
     }
 
     public void agregarCalificacion(Estudiante estudiante, Integer calificacion) {
