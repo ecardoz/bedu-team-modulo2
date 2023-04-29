@@ -36,6 +36,9 @@ public class Materia {
         this.id = id;
         this.nombre = nombre;
     }
+
+    public Materia(){}
+
     @Override
     public int hashCode() {
         return super.hashCode();
