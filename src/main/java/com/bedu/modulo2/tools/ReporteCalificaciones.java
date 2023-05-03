@@ -32,11 +32,13 @@ public class ReporteCalificaciones {
 
 
     public List<Reporte> alfabetico(Curso curso){
-        return generaLista(curso.getCalificaciones(), Comparator.comparing(Reporte::getNombreEstudiante));
+        return generaLista(
+                curso.getCalificaciones(), Comparator.comparing(Reporte::getNombreEstudiante));
     }
 
     public List<Reporte> calificacion(Curso curso){
-        return generaLista(curso.getCalificaciones(), Comparator.comparing(Reporte::getCalificacion).reversed());
+        return generaLista(
+                curso.getCalificaciones(), Comparator.comparing(Reporte::getCalificacion).reversed());
     }
 
     private List<Reporte> generaLista(Map<Estudiante, Integer> calificaciones, Comparator<Reporte> comparator){
