@@ -16,7 +16,7 @@ public class CalculadorPromedioCurso implements Runnable{
         for(Integer i: curso.getCalificaciones().values()){
             promedio += i;
         }
-        promedio /= curso.getCalificaciones().values().size();;
+        promedio /= curso.getCalificaciones().values().size();
 
         System.out.println(String.format("El promedio del curso: %s - %s es: %s",
                 curso.getId(), curso.getMateria().getNombre(), promedio));
