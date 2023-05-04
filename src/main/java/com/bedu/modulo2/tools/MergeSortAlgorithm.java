@@ -6,6 +6,14 @@ public class MergeSortAlgorithm {
     public static <T extends Comparable<T>> List<T> sort(List<T> unsortedList) {
         return sort(unsortedList, Comparator.naturalOrder());
     }
+
+    /**
+     * Allow to sort a list
+     * @param unsortedList
+     * @param comparator
+     * @return
+     * @param <T>
+     */
     public static <T> List<T> sort(List<T> unsortedList, Comparator<T> comparator) {
         if (unsortedList.size() == 1) {
             return unsortedList;
@@ -18,6 +26,15 @@ public class MergeSortAlgorithm {
 
         return merge(stackA, stackB, comparator);
     }
+
+    /**
+     * Allow to merge two stacks
+     * @param stackA
+     * @param stackB
+     * @param comparator
+     * @return
+     * @param <T>
+     */
     private static <T> List<T> merge(Deque<T> stackA, Deque<T> stackB, Comparator<T> comparator) {
         List<T> merged = new ArrayList<>();
 

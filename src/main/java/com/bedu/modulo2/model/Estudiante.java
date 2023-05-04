@@ -25,10 +25,18 @@ public class Estudiante {
         this.id = id;
     }
 
+    /**
+     * Return the full name
+     * @return
+     */
     public String getNombreCompleto() {
         return nombreCompleto;
     }
 
+    /**
+     * Set the full name
+     * @param nombreCompleto
+     */
     public void setNombreCompleto(String nombreCompleto) {
         this.nombreCompleto = nombreCompleto;
     }

@@ -13,13 +13,10 @@ public class CalculadorPromedioCurso implements Runnable{
 
     @Override
     public void run(){
-        int nAlumnos = 0;
         for(Integer i: curso.getCalificaciones().values()){
             promedio += i;
-            nAlumnos++;
         }
-
-        promedio /= nAlumnos;
+        promedio /= curso.getCalificaciones().values().size();
 
         System.out.println(String.format("El promedio del curso: %s - %s es: %s",
                 curso.getId(), curso.getMateria().getNombre(), promedio));
