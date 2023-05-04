@@ -24,10 +24,18 @@ public class Materia {
         this.id = id;
     }
 
+    /**
+     * Return the subject name
+     * @return
+     */
     public String getNombre() {
         return nombre;
     }
 
+    /**
+     * Set the subject name
+     * @param nombre
+     */
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
