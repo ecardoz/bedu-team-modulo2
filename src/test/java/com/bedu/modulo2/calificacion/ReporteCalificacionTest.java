@@ -1,4 +1,4 @@
-package com.bedu.modulo2.tools;
+package com.bedu.modulo2.calificacion;
 
 import com.bedu.modulo2.model.Curso;
 import com.bedu.modulo2.model.Estudiante;
