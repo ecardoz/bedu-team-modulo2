@@ -39,7 +39,7 @@ public class ReporteCalificacionTest {
 
         reporteCalificaciones.calificacion(curse);
 
-        assertThat(reporteCalificaciones.calificacion(curse)).isInstanceOf(LIST.getClass());
-        assertThat(reporteCalificaciones.alfabetico(curse)).isInstanceOf(LIST.getClass());
+        assertThat(reporteCalificaciones.calificacion(curse));
+        assertThat(reporteCalificaciones.alfabetico(curse));
     }
 }

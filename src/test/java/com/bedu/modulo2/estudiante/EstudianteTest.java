@@ -16,12 +16,4 @@ public class EstudianteTest {
         assertThat(student.getNombreCompleto()).isEqualTo(nombreStudent);
     }
 
-    @Test
-    @Disabled("TODO")
-    public void createAndStoreStudentTest(){
-        Estudiante student = new Estudiante();
-        String nombreStudent = "Jhon Wick";
-        student.setNombreCompleto(nombreStudent);
-        assertThat(student.getNombreCompleto()).isEqualTo(nombreStudent);
-    }
 }
