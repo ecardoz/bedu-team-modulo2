@@ -4,6 +4,7 @@ import com.bedu.modulo2.dto.estudiante.EstudianteCreadoDto;
 import com.bedu.modulo2.dto.estudiante.EstudianteDto;
 import com.bedu.modulo2.dto.estudiante.EstudianteEliminadoDto;
 import com.bedu.modulo2.dto.estudiante.EstudianteToUpdateDto;
+import com.bedu.modulo2.exceptions.estudiante.EstudianteNotFoundException;
 import com.bedu.modulo2.mapper.DireccionMapper;
 import com.bedu.modulo2.mapper.EstudianteMapper;
 import com.bedu.modulo2.model.Estudiante;
@@ -27,7 +28,12 @@ public class EstudianteService {
     }
 
     public Page<EstudianteCreadoDto> obtenerEstudiantes(Pageable pageable) {
-        return estudianteRepository.findAllByActivoTrue(pageable).map(estudianteMapper::estudianteToEstudianteCreadoDto);
+        Page<Estudiante> listaEstudiantes = estudianteRepository.findAllByActivoTrue(pageable);
+
+        if (listaEstudiantes.isEmpty())
+            throw new EstudianteNotFoundException("No se encontraron estudiantes");
+
+        return listaEstudiantes.map(estudianteMapper::estudianteToEstudianteCreadoDto);
     }
 
     public EstudianteCreadoDto obtenerEstudiante(Long id) {
@@ -52,6 +58,6 @@ public class EstudianteService {
 
     private void checkIsEstudianteNull(Estudiante estudiante) {
         if (estudiante == null)
-            throw new RuntimeException("No se encontró el estudiante");
+            throw new EstudianteNotFoundException("No se encontró el estudiante");
     }
 }
