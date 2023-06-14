@@ -1,4 +1,4 @@
-package com.bedu.modulo2.exceptions;
+package com.bedu.modulo2.exceptions.otros;
 
 public class RegistroExistenteException extends RuntimeException {
     public RegistroExistenteException(String message) {
