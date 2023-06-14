@@ -16,6 +16,7 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
+@Builder
 public class Estudiante {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,7 +32,17 @@ public class Estudiante {
     @Column(unique = true, length = 50, nullable = false)
     private String curp;
 
+    @Column(nullable = false)
+    private Boolean activo;
+
     @Embedded
     private Direccion direccion;
 
+    public void actualizar(String nombre, Direccion direccion) {
+        if (nombre != null)
+            this.nombreCompleto = nombre;
+
+        if (direccion != null)
+            this.direccion = this.direccion.actualizar(direccion);
+    }
 }
