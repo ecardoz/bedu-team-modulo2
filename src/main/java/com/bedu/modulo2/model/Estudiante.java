@@ -1,59 +1,37 @@
 package com.bedu.modulo2.model;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Size;
+import lombok.*;
 
-import java.util.Objects;
+/**Restricciones de la clase Estudiante:
+ * - Id autoincremental
+ * - Email unico
+ * - Curp unico
+ * */
 
 @Entity
 @Table(name="estudiantes")
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
 public class Estudiante {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
     private Long id;
 
-    @Column(name="nombre_completo")
-    @Size(max= 45)
+    @Column(name="nombre_completo", length = 100, nullable = false)
     private String nombreCompleto;
 
-    public Long getId() {
-        return id;
-    }
+    @Column(unique = true, length = 50, nullable = false)
+    private String email;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+    @Column(unique = true, length = 50, nullable = false)
+    private String curp;
 
-    /**
-     * Return the full name
-     * @return
-     */
-    public String getNombreCompleto() {
-        return nombreCompleto;
-    }
-
-    /**
-     * Set the full name
-     * @param nombreCompleto
-     */
-    public void setNombreCompleto(String nombreCompleto) {
-        this.nombreCompleto = nombreCompleto;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (!(obj instanceof Estudiante)) return false;
-        Estudiante that = (Estudiante) obj;
-        return id.equals(that.id) &&
-                nombreCompleto.equals(that.nombreCompleto);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, nombreCompleto);
-    }
-
+    @Embedded
+    private Direccion direccion;
 
 }
