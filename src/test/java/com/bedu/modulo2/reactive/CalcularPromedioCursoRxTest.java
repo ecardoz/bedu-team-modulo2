@@ -5,13 +5,14 @@ import com.bedu.modulo2.model.Estudiante;
 import com.bedu.modulo2.model.Materia;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.autoconfigure.restdocs.AutoConfigureRestDocs;
 
 import java.util.HashMap;
 import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
+@AutoConfigureRestDocs(outputDir = "build/generated-snippets")
 class CalcularPromedioCursoRxTest {
     private static final Curso CURSO = new Curso();
 

@@ -2,9 +2,11 @@ package com.bedu.modulo2.materia;
 
 import com.bedu.modulo2.model.Materia;
 import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.autoconfigure.restdocs.AutoConfigureRestDocs;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+@AutoConfigureRestDocs(outputDir = "build/generated-snippets")
 public class MateriaTest {
 
     @Test

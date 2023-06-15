@@ -3,9 +3,11 @@ package com.bedu.modulo2.estudiante;
 import com.bedu.modulo2.model.Estudiante;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.autoconfigure.restdocs.AutoConfigureRestDocs;
 
 import static org.assertj.core.api.Assertions.*;
 
+@AutoConfigureRestDocs(outputDir = "build/generated-snippets")
 public class EstudianteTest {
 
     @Test

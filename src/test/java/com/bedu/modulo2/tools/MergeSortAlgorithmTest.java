@@ -5,6 +5,7 @@ import lombok.RequiredArgsConstructor;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.autoconfigure.restdocs.AutoConfigureRestDocs;
 
 import java.util.Comparator;
 import java.util.List;
@@ -15,6 +16,7 @@ import java.util.stream.IntStream;
 import static org.assertj.core.api.Assertions.assertThat;
 
 
+@AutoConfigureRestDocs(outputDir = "build/generated-snippets")
 class MergeSortAlgorithmTest {
     private static final Random RANDON_GENERATOR = new Random();
     private static final int COLLECTION_SIZE = 100000;
