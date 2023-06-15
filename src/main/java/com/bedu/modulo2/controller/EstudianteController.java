@@ -4,6 +4,7 @@ import com.bedu.modulo2.dto.estudiante.EstudianteCreadoDto;
 import com.bedu.modulo2.dto.estudiante.EstudianteDto;
 import com.bedu.modulo2.dto.estudiante.EstudianteEliminadoDto;
 import com.bedu.modulo2.dto.estudiante.EstudianteToUpdateDto;
+import com.bedu.modulo2.exceptions.estudiante.EstudianteNotFoundException;
 import com.bedu.modulo2.service.EstudianteService;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
@@ -40,7 +41,7 @@ public class EstudianteController {
         if(estudianteService.obtenerEstudiantes(pageable).getTotalElements() > 0)
             return ResponseEntity.status(200).body(estudianteService.obtenerEstudiantes(pageable));
         else
-            return ResponseEntity.status(404).build();
+            throw new EstudianteNotFoundException("No se encontraron estudiantes");
     }
 
     @GetMapping("/{id}")
