@@ -9,4 +9,8 @@ public interface EstudianteRepository extends JpaRepository<Estudiante, Long> {
     Page<Estudiante> findAllByActivoTrue(Pageable pageable);
 
     Estudiante getByIdAndActivoTrue(Long id);
+
+    boolean existsByEmail(String email);
+
+    boolean existsByCurp(String curp);
 }

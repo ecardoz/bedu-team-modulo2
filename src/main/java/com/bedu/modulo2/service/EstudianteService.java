@@ -4,6 +4,7 @@ import com.bedu.modulo2.dto.estudiante.EstudianteCreadoDto;
 import com.bedu.modulo2.dto.estudiante.EstudianteDto;
 import com.bedu.modulo2.dto.estudiante.EstudianteEliminadoDto;
 import com.bedu.modulo2.dto.estudiante.EstudianteToUpdateDto;
+import com.bedu.modulo2.exceptions.estudiante.EstudianteAlreadyExistsException;
 import com.bedu.modulo2.exceptions.estudiante.EstudianteNotFoundException;
 import com.bedu.modulo2.mapper.DireccionMapper;
 import com.bedu.modulo2.mapper.EstudianteMapper;
@@ -23,8 +24,21 @@ public class EstudianteService {
     private final DireccionMapper direccionMapper;
 
     public EstudianteCreadoDto crearEstudiante(EstudianteDto estudianteDto) {
+        checkSiEstudianteConMismoEmail(estudianteDto.email());
+        checkSiEstudianteConMismoCurp(estudianteDto.curp());
+
         Estudiante estudiante = estudianteMapper.estudianteDtoToEstudiante(estudianteDto);
         return estudianteMapper.estudianteToEstudianteCreadoDto(estudianteRepository.save(estudiante));
+    }
+
+    private void checkSiEstudianteConMismoEmail(String email) {
+        if (estudianteRepository.existsByEmail(email))
+            throw new EstudianteAlreadyExistsException("Ya existe un estudiante con el email: " + email);
+    }
+
+    private void checkSiEstudianteConMismoCurp(String curp) {
+        if (estudianteRepository.existsByCurp(curp))
+            throw new EstudianteAlreadyExistsException("Ya existe un estudiante con el curp: " + curp);
     }
 
     public Page<EstudianteCreadoDto> obtenerEstudiantes(Pageable pageable) {
