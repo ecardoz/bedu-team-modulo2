@@ -30,7 +30,6 @@ public class EstudianteController {
               @RequestBody @Valid EstudianteDto estudianteDto,
               UriComponentsBuilder uriComponentsBuilder)
     {
-
         EstudianteCreadoDto estudianteCreadoDto = estudianteService.crearEstudiante(estudianteDto);
         URI location = uriComponentsBuilder.path("/estudiantes/{id}").buildAndExpand(estudianteCreadoDto.id()).toUri();
         return ResponseEntity.created(location).body(estudianteCreadoDto);

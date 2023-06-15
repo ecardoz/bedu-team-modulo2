@@ -24,21 +24,13 @@ public class EstudianteService {
     private final DireccionMapper direccionMapper;
 
     public EstudianteCreadoDto crearEstudiante(EstudianteDto estudianteDto) {
-        checkSiEstudianteConMismoEmail(estudianteDto.email());
-        checkSiEstudianteConMismoCurp(estudianteDto.curp());
+        if(estudianteRepository.existsByEmail(estudianteDto.email())
+                || estudianteRepository.existsByCurp(estudianteDto.curp())){
+            throw new EstudianteAlreadyExistsException("Ya existe un estudiante con el email o curp proporcionados.");
+        }
 
         Estudiante estudiante = estudianteMapper.estudianteDtoToEstudiante(estudianteDto);
         return estudianteMapper.estudianteToEstudianteCreadoDto(estudianteRepository.save(estudiante));
-    }
-
-    private void checkSiEstudianteConMismoEmail(String email) {
-        if (estudianteRepository.existsByEmail(email))
-            throw new EstudianteAlreadyExistsException("Ya existe un estudiante con el email: " + email);
-    }
-
-    private void checkSiEstudianteConMismoCurp(String curp) {
-        if (estudianteRepository.existsByCurp(curp))
-            throw new EstudianteAlreadyExistsException("Ya existe un estudiante con el curp: " + curp);
     }
 
     public Page<EstudianteCreadoDto> obtenerEstudiantes(Pageable pageable) {
