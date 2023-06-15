@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
   uses = {DireccionMapper.class},
   nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE )
 
-@Component
+//@Component
 public interface EstudianteMapper {
     Estudiante estudianteDtoToEstudiante(EstudianteDto estudianteDto);
 

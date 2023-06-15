@@ -5,10 +5,11 @@ import com.bedu.modulo2.dto.estudiante.EstudianteDto;
 import com.bedu.modulo2.dto.estudiante.EstudianteEliminadoDto;
 import com.bedu.modulo2.dto.estudiante.EstudianteToUpdateDto;
 import com.bedu.modulo2.exceptions.estudiante.EstudianteNotFoundException;
-import com.bedu.modulo2.service.EstudianteService;
+import com.bedu.modulo2.service.IEstudianteService;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import lombok.Data;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
@@ -22,7 +23,8 @@ import java.net.URI;
 @Data
 public class EstudianteController {
 
-    private final EstudianteService estudianteService;
+    private final IEstudianteService estudianteService;
+
 
     @PostMapping
     @Transactional

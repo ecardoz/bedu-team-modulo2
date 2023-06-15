@@ -2,10 +2,17 @@ package com.bedu.modulo2.model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Size;
+import lombok.*;
 
 
 @Entity
 @Table(name = "materias")
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
+@Builder
 public class Materia {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,6 +22,8 @@ public class Materia {
     @Column(name = "nombre")
     @Size(max = 45)
     private String nombre;
+
+    /*
 
     public Long getId() {
         return id;
@@ -27,7 +36,7 @@ public class Materia {
     /**
      * Return the subject name
      * @return
-     */
+     * /
     public String getNombre() {
         return nombre;
     }
@@ -35,7 +44,7 @@ public class Materia {
     /**
      * Set the subject name
      * @param nombre
-     */
+     * /
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
@@ -56,4 +65,5 @@ public class Materia {
     public boolean equals(Object obj) {
         return super.equals(obj);
     }
+     */
 }

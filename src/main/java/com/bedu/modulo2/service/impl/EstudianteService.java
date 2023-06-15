@@ -1,4 +1,4 @@
-package com.bedu.modulo2.service;
+package com.bedu.modulo2.service.impl;
 
 import com.bedu.modulo2.dto.estudiante.EstudianteCreadoDto;
 import com.bedu.modulo2.dto.estudiante.EstudianteDto;
@@ -10,14 +10,16 @@ import com.bedu.modulo2.mapper.DireccionMapper;
 import com.bedu.modulo2.mapper.EstudianteMapper;
 import com.bedu.modulo2.model.Estudiante;
 import com.bedu.modulo2.repository.EstudianteRepository;
+import com.bedu.modulo2.service.IEstudianteService;
 import lombok.Data;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 @Service
 @Data
-public class EstudianteService {
+public class EstudianteService implements IEstudianteService {
 
     private final EstudianteRepository estudianteRepository;
     private final EstudianteMapper estudianteMapper;
@@ -58,7 +60,7 @@ public class EstudianteService {
         return estudianteMapper.estudianteToEstudianteCreadoDto(estudiante);
     }
 
-    private void checkIsEstudianteNull(Estudiante estudiante) {
+    public void checkIsEstudianteNull(Estudiante estudiante) {
         if (estudiante == null)
             throw new EstudianteNotFoundException("No se encontró el estudiante");
     }
