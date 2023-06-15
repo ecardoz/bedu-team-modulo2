@@ -37,7 +37,10 @@ public class EstudianteController {
 
     @GetMapping
     public ResponseEntity<Page<EstudianteCreadoDto>> obtenerEstudiantes(Pageable pageable) {
-        return ResponseEntity.status(200).body(estudianteService.obtenerEstudiantes(pageable));
+        if(estudianteService.obtenerEstudiantes(pageable).getTotalElements() > 0)
+            return ResponseEntity.status(200).body(estudianteService.obtenerEstudiantes(pageable));
+        else
+            return ResponseEntity.status(404).build();
     }
 
     @GetMapping("/{id}")
