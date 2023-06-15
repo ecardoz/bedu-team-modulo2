@@ -5,7 +5,6 @@ import com.bedu.modulo2.model.Estudiante;
 import com.bedu.modulo2.model.Materia;
 import com.bedu.modulo2.tools.ReporteCalificaciones;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 
 import java.util.HashMap;
 import java.util.Map;
