@@ -43,10 +43,6 @@ public class EstudianteService {
 
     public Page<EstudianteCreadoDto> obtenerEstudiantes(Pageable pageable) {
         Page<Estudiante> listaEstudiantes = estudianteRepository.findAllByActivoTrue(pageable);
-
-        if (listaEstudiantes.isEmpty())
-            throw new EstudianteNotFoundException("No se encontraron estudiantes");
-
         return listaEstudiantes.map(estudianteMapper::estudianteToEstudianteCreadoDto);
     }
 
