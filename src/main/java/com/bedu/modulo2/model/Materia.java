@@ -23,6 +23,14 @@ public class Materia {
     @Size(max = 45)
     private String nombre;
 
+    /**
+     * Return the subject name
+     * @return
+     */
+    public String getNombre() {
+        return nombre;
+    }
+
     /*
 
     public Long getId() {

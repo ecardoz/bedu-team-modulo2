@@ -12,6 +12,8 @@ public interface EstudianteRepository extends JpaRepository<Estudiante, Long> {
 
     Estudiante getByIdAndActivoTrue(Long id);
 
+    Estudiante getByEmail(String email);
+
     boolean existsByEmail(String email);
 
     boolean existsByCurp(String curp);
