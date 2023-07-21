@@ -48,8 +48,7 @@ public class EstudianteService implements IEstudianteService {
 
     public EstudianteCreadoDto obtenerEstudianteEmail(String email) {
         Estudiante estudiante = estudianteRepository.getByEmail(email);
-        System.out.println("**************ESTUDIANTE" + estudiante);
-        //checkIsEstudianteNull(estudiante);
+        checkIsEstudianteNull(estudiante);
         return estudianteMapper.estudianteToEstudianteCreadoDto(estudiante);
     }
 

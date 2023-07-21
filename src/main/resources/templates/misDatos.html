@@ -13,16 +13,12 @@
 <div class="header">
     <h1>My B-records</h1>
 </div>
-<h2 th:object="${estudiante}">Bienvenido <span th:text="${ estudiante.nombreCompleto}"></span></h2>
+<h2 th:object="${estudiante}">Bienvenido <span th:text="${ estudiante.nombreCompleto()}"></span></h2>
 
 
-<div class="estudiante-container" >
-    <div th:object="${materia}">
-        <span>Materia: </span><span th:text="${ materia}"></span>
-    </div>
-    <div th:object="${calificacion}">
-        <span>Calificacion: </span><span th:text="${ calificacion}"></span>
-    </div>
+<div class="estudiante-container" th:object="${estudiante}">
+    <div><p>Email: <span th:text="${ estudiante.email()}"></span></p></div>
+    <div><p>Curp: <span th:text="${ estudiante.curp()}"></span></p></div>
 </div>
 <div class="btn-container">
     <button class="add-new">

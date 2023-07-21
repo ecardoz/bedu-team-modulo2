@@ -16,7 +16,33 @@ body, html {
    margin: auto;
    }
 
-.agenda-container{
+.header {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("https://images.unsplash.com/photo-1515847049296-a281d6401047?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80");
+  height: 30%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+h1 {
+  text-align: center;
+  margin: auto;
+  color: white;
+  padding-top: 100px;
+  font-size: 45px;
+  font-weight: bold;
+}
+
+h2 {
+  text-align: center;
+  padding-top: 50px;
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 50px;
+}
+
+.estudiante-container{
 text-align: center;
 padding-top: 70px;
 width: 60%;
@@ -51,9 +77,51 @@ padding-top: 30px;
          letter-spacing: 1px;
 }
 
+.form-control {
+  margin: auto;
+  width: 40%;
+  border: 0;
+  outline: 0;
+  border-radius: 20px;
+  padding: 16px;
+  background-color: #ebecf0;
+  text-shadow: 1px 1px 0 #fff;
+  box-shadow: inset 2px 2px 5px #babecc, inset -5px -5px 10px #fff;
+  box-sizing: border-box;
+  transition: all 0.2s ease-in-out;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.form-control:focus {
+  background-color: #ebecf0;
+}
+.form {
+  text-align: center;
+}
+
+
 .btn-container{
-text-align: center;
-padding-top: 40px
+display:flex;
+justify-content: center;
+gap: 10%;
+
+}
+
+.btn-save, .see-list{
+  margin-top: 50px;
+  color: white;
+  background-color: #3399ff;
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: -5px -5px 20px #cce5ff, 5px 5px 20px #cce4ff;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.btn-save:hover, .see-list:hover {
+  font-size: 18px;
 }
 
 .add-new{

@@ -23,6 +23,10 @@ public class Materia {
     @Size(max = 45)
     private String nombre;
 
+    public Materia(String nombre){
+        this.nombre = nombre;
+    }
+
     /**
      * Return the subject name
      * @return
