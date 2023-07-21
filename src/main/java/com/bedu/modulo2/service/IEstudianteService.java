@@ -15,6 +15,8 @@ public interface IEstudianteService {
 
     public EstudianteCreadoDto obtenerEstudiante(Long id);
 
+    public EstudianteCreadoDto obtenerEstudianteEmail(String email);
+
     public EstudianteEliminadoDto eliminarEstudiante(Long id);
 
     public EstudianteCreadoDto actualizarEstudiante(EstudianteToUpdateDto estudianteToUpdateDto);

@@ -11,7 +11,7 @@ public class Curso {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
     private String ciclo;
     @ManyToOne
     private Materia materia;
@@ -33,6 +33,10 @@ public class Curso {
         return id;
     }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public String getCiclo() {
         return ciclo;
     }
@@ -43,6 +47,10 @@ public class Curso {
 
     public Materia getMateria() {
         return materia;
+    }
+
+    public String getMateriaNombre() {
+        return materia.getNombre();
     }
 
     public void setMateria(Materia materia) {

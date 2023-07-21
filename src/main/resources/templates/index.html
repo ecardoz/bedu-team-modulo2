@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link th:href="@{/index.css}" rel="stylesheet" />
+    <title>"My B-records"</title>
+</head>
+<body>
+
+<div class="header">
+    <h1>My B-records</h1>
+</div>
+<h2>Ingresa tus datos</h2>
+<form class="form" th:action="@{/sesionestudiante}" th:object="${estudiante}" method="post">
+    <div class="form-group">
+        <!--<label for="nombre">correo: </label>-->
+        <input placeholder="Correo" class="form-control" id="email" type="text" th:field="*{email}">
+        <div th:if="${#fields.hasErrors('email')}" th:errorclass="error" th:errors="*{email}"></div>
+    </div>
+    <div class="btn-container">
+        <input type="submit" class="btn-save" th:value="Iniciar"/>
+    </div>
+</form>
+<footer>
+    <div>
+        <img th:src="@{/images/logo-bedu.svg}">
+    </div>
+    <div>
+        <h5>Equipo 1</h5>
+        <p>Curso Desarrollo Web Java-Fase3, Bedu 2023</p>
+    </div>
+    <div class="beto">
+        <img th:src="@{/images/beto.png}">
+    </div>
+</footer>
+</body>
+</html>
