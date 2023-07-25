@@ -9,7 +9,6 @@ import com.bedu.modulo2.service.IEstudianteService;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import lombok.Data;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;

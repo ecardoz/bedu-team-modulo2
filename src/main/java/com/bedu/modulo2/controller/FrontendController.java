@@ -2,7 +2,6 @@ package com.bedu.modulo2.controller;
 
 import com.bedu.modulo2.dto.estudiante.EstudianteCreadoDto;
 import com.bedu.modulo2.dto.materia.MateriaCreadaDto;
-import com.bedu.modulo2.dto.materia.MateriaDto;
 import com.bedu.modulo2.exceptions.estudiante.EstudianteNotFoundException;
 import com.bedu.modulo2.model.Curso;
 import com.bedu.modulo2.model.Estudiante;
@@ -10,7 +9,6 @@ import com.bedu.modulo2.model.Materia;
 import com.bedu.modulo2.service.FrontendService;
 import com.bedu.modulo2.service.IEstudianteService;
 import com.bedu.modulo2.service.IMateriaService;
-import com.bedu.modulo2.service.impl.EstudianteService;
 import jakarta.validation.Valid;
 import lombok.Data;
 import org.springframework.data.domain.Page;
@@ -56,8 +54,7 @@ public class FrontendController {
     }
 
     private void agregarCalificacionEstudiante(EstudianteCreadoDto estudiante){
-        Random rnd = new Random();
-        Integer calificacion;
+        int calificacion;
         Estudiante estudiante1 =  service.obtenerEstudiante(estudiante.id());
 
         for(Curso curso: cursosList){

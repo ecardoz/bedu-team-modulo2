@@ -1,10 +1,15 @@
 package com.bedu.modulo2.async;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.concurrent.TimeUnit;
 
 public class ReceptorSolicitudes implements Runnable{
+
+    private static final Logger logger = LoggerFactory.getLogger(InscripcionAlumnos.class);
 
     private boolean enEjecucion = false;
     private Queue<SolicitudEstudiante> listaSolicitudes = new LinkedList<>();
@@ -20,7 +25,7 @@ public class ReceptorSolicitudes implements Runnable{
                 SolicitudEstudiante evento = listaSolicitudes.poll();
 
                 if (evento == null){
-                    System.out.println("No hay solicitudes pendientes.");
+                    logger.info("No hay solicitudes pendientes.");
                     TimeUnit.SECONDS.sleep(1);
                     continue;
                 }
