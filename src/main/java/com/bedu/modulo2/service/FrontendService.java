@@ -1,6 +1,5 @@
 package com.bedu.modulo2.service;
 
-import com.bedu.modulo2.dto.estudiante.EstudianteCreadoDto;
 import com.bedu.modulo2.model.Curso;
 import com.bedu.modulo2.model.Estudiante;
 import com.bedu.modulo2.repository.CursoRepository;

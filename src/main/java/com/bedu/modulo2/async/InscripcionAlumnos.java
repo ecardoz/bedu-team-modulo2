@@ -3,24 +3,25 @@ package com.bedu.modulo2.async;
 import com.bedu.modulo2.model.Curso;
 import com.bedu.modulo2.model.Estudiante;
 import com.bedu.modulo2.model.Materia;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 public class InscripcionAlumnos {
+    private static final Logger logger = LoggerFactory.getLogger(InscripcionAlumnos.class);
+
     public static void main(String[] args) {
 
         ReceptorSolicitudes eventLoop = new ReceptorSolicitudes(solicitudInscripcion -> {
             if (solicitudInscripcion.getEstudiante() == null || solicitudInscripcion.getCurso() == null){
-                System.out.println("Solicitud rechazdas, los datos son incorrectos");
+                logger.info("Solicitud rechazada, los datos son incorrectos");
             }
 
-            System.out.println("Un nuevo alumno de inscribió al curso");
-            System.out.println(String.format("El estudiante: [%s] se ha inscrito en la materia %s",
+            logger.info("Un nuevo alumno de inscribió al curso");
+            logger.info("El estudiante: {} se ha inscrito en la materia {}%n",
                     solicitudInscripcion.getEstudiante().getNombreCompleto(),
-                    solicitudInscripcion.getCurso().getMateria().getNombre()));
+                    solicitudInscripcion.getCurso().getMateria().getNombre());
         });
 
         eventLoop.iniciar();

@@ -11,7 +11,6 @@ public class MergeSortAlgorithm {
      * Allow to sort a list
      * @param unsortedList
      * @param comparator
-     * @return
      * @param <T>
      */
     public static <T> List<T> sort(List<T> unsortedList, Comparator<T> comparator) {

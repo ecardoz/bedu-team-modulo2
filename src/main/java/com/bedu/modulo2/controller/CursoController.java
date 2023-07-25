@@ -2,18 +2,11 @@ package com.bedu.modulo2.controller;
 
 import com.bedu.modulo2.dto.curso.CursoCreadoDto;
 import com.bedu.modulo2.dto.curso.CursoDto;
-import com.bedu.modulo2.dto.estudiante.EstudianteCreadoDto;
-import com.bedu.modulo2.dto.estudiante.EstudianteDto;
-import com.bedu.modulo2.dto.materia.MateriaCreadaDto;
-import com.bedu.modulo2.dto.materia.MateriaDto;
 import com.bedu.modulo2.exceptions.estudiante.EstudianteNotFoundException;
 import com.bedu.modulo2.service.ICursoService;
-import com.bedu.modulo2.service.IEstudianteService;
-import com.bedu.modulo2.service.IMateriaService;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import lombok.Data;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;

@@ -6,7 +6,6 @@ import com.bedu.modulo2.dto.estudiante.EstudianteEliminadoDto;
 import com.bedu.modulo2.dto.estudiante.EstudianteToUpdateDto;
 import com.bedu.modulo2.model.Estudiante;
 import org.mapstruct.*;
-import org.springframework.stereotype.Component;
 
 @Mapper(
   unmappedTargetPolicy = ReportingPolicy.IGNORE,

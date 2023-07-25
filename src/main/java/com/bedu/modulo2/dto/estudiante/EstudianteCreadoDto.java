@@ -1,7 +1,6 @@
 package com.bedu.modulo2.dto.estudiante;
 
 import com.bedu.modulo2.dto.direccion.DireccionDto;
-import com.bedu.modulo2.model.Direccion;
 import jakarta.validation.constraints.NotNull;
 
 import java.io.Serializable;

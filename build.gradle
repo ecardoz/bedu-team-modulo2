@@ -3,6 +3,13 @@ plugins {
 	id 'org.springframework.boot' version '3.0.6'
 	id 'io.spring.dependency-management' version '1.1.0'
 	id "org.asciidoctor.jvm.convert" version "3.3.2"
+
+	//Plugin de sonarqube
+	id "org.sonarqube" version "4.2.1.3168"
+
+	//Cobertura de codigo
+	id 'jacoco'
+
 }
 
 configurations {
@@ -55,8 +62,39 @@ asciidoctor {
 	dependsOn test
 }
 
+sonar {
+	properties {
+		property "sonar.junit.reportPaths", "${buildDir}/test-results/junit-platform/"
+		property "sonar.jacoco.reportPaths", "${buildDir}/reports/jacoco/test/jacocoTestReport.xml"
+	}
+}
+
+jacocoTestReport {
+	reports {
+		xml.required = true
+	}
+}
+
 tasks.named('test') {
 	useJUnitPlatform()
+
+	// Configuración para obtener el reporte en formato XML
+	reports {
+		junitXml.destination = file("${buildDir}/test-results/junit-platform/")
+		junitXml.required = true
+	}
+
+	finalizedBy jacocoTestReport
+}
+
+tasks.withType(Test).configureEach {
+	def outputDir = reports.junitXml.outputLocation
+	jvmArgumentProviders << ({
+		[
+				"-Djunit.platform.reporting.open.xml.enabled=true",
+				"-Djunit.platform.reporting.output.dir=${outputDir.get().asFile.absolutePath}"
+		]
+	} as CommandLineArgumentProvider)
 }
 
 bootJar {
