@@ -46,6 +46,20 @@ dependencies {
 
 	asciidoctorExt 'org.springframework.restdocs:spring-restdocs-asciidoctor:0.0.1-SNAPSHOT'
 
+
+	//Para e2e:::
+	testImplementation 'junit:junit:4.13.2'
+
+	// https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java
+	implementation group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '4.10.0'
+	// https://mvnrepository.com/artifact/io.cucumber/cucumber-java
+	implementation group: 'io.cucumber', name: 'cucumber-java', version: '7.13.0'
+	// https://mvnrepository.com/artifact/io.cucumber/cucumber-junit
+	testImplementation group: 'io.cucumber', name: 'cucumber-junit', version: '7.13.0'
+
+
+
+
 }
 
 ext {
