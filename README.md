@@ -5,7 +5,7 @@
 </div>
 
 ## Acerca del proyecto
-<p style="text-align: justify;"> En este repositorio podrán encontrar el proyecto de fin del módulo 3 de la fase 2 del curso <b>Desarrollo Web Java</b> de <b>BEDU</b> .<br></b>
+<p style="text-align: justify;"> En este repositorio podrán encontrar el proyecto de fin del módulo 1 de la fase 3 del curso <b>Desarrollo Web Java</b> de <b>BEDU</b> .<br></b>
 El proyecto consistió en realizar los postworks de cada sesión del módulo dando como resultado final un programa que permita llevar el control de calificaciones, materias y estudiantes por curso.<br>
 </p>
 
